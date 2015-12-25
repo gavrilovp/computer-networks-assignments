@@ -1,0 +1,62 @@
+% TODO: replace with submodule https://github.com/gavrilovp/latex-preambles or else
+% polyglossia should go first!
+\usepackage{polyglossia} % multi-language support
+
+\usepackage{amsmath} % math symbols, new environments and stuff
+\usepackage{unicode-math} % changing math font and unicode symbols
+\usepackage[style=english]{csquotes} % fancy quoting
+\usepackage{microtype} % better font rendering
+\usepackage{hyperref} % refs and URLs
+\usepackage{graphicx} % images (and title page)
+\usepackage{geometry} % margins in title page
+\usepackage{tabu} % tabulars (and title page)
+% \usepackage[backend=bibtex, style=numeric-comp, sorting=none]{biblatex} % bibliography
+\usepackage{placeins} % float barriers
+\usepackage{titlesec} % section break hooks
+\usepackage{listings} % listings
+\usepackage{upquote} % good-looking quotes in source code (used for custom languages)
+\usepackage{xcolor} % colors!
+\usepackage{enumitem} % unboxed description labels (long ones)
+\usepackage{caption} % captions
+\usepackage{tocloft} % dots in TOC
+\usepackage{indentfirst} % indentation after section
+
+\setmainlanguage{russian}
+\setotherlanguage{english}
+\defaultfontfeatures{Mapping=tex-text} % for converting "--" and "---"
+\setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{CMU Typewriter Text}
+% \setmathfont{STIX Math}
+\DeclareSymbolFont{letters}{\encodingdefault}{\rmdefault}{m}{it} % for Russian in math
+\MakeOuterQuote{"} % enable auto-quotation
+
+% new page and barrier after section, also phantom section after clearpage for
+% hyperref to get right page.
+% clearpage also outputs all active floats:
+\newcommand{\sectionbreak}{\clearpage\phantomsection}
+\newcommand{\subsectionbreak}{\FloatBarrier}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\renewcommand{\thesection}{\arabic{section}} % no chapters
+\numberwithin{equation}{section}
+
+\newcommand{\icode}[1]{\texttt{#1}} % inline code
+
+\lstset{
+  numbers=left,
+  numberstyle=\scriptsize,
+  basicstyle=\ttfamily\scriptsize,
+  columns=fullflexible,
+  keepspaces, % for spaces in unicode text!
+  captionpos=b, % Russian standards, again
+  breaklines=true, % for long strings
+}
+
+% Увы, поля придётся уменьшить из-за листингов.
+\topmargin -1cm
+\oddsidemargin -0.5cm
+\evensidemargin -0.5cm
+\textwidth 17cm
+\textheight 24cm
+
+\sloppy
